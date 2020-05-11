@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['table']});
+      google.charts.setOnLoadCallback(drawTable);
+
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Team');
+        data.addColumn('number', 'Accuracy');
+        data.addColumn('number', 'Evidence F1');
+        data.addRows([
+          ['UNC-NLP',  {v: 67.98, f: '67.98'}, {v: 53.22, f: '53.22'}],
+          ['UCL MACHINE READING GROUP',  {v: 67.44, f: '67.44'}, {v: 35.21, f: '35.21'}],
+          ['COLUMBIA NLP',  {v: 57.28, f: '57.28'}, {v: 35.47, f: '35.47'}],
+          ['635ERS',  {v: 45.46, f: '45.46'}, {v: 21.12, f: '21.12'}],
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+
+        table.draw(data, {showRowNumber: true, width: '50%', height: '50%'});
+      }
+    </script>
+  </head>
+  <body>
+    <div id="table_div"></div>
+  </body>
+</html>
